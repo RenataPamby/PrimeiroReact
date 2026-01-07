@@ -1,18 +1,12 @@
-import { useState } from "react"
 
 
-function App() {
-  const [count, setCount] = useState(0) 
-  {/*useSatate = Valor inicial da função*/}
+export function App() {
+  
 
   return (
     <>
-    <p>Hello Word</p>
-    <button onClick={() => setCount(count + 1)}> {/*setCount é uma função*/}
-      Contador {count} {/*count é uma variavel que sera contada*/}
-    </button>
+      Olá
     </>
   )
 }
 
-export default App
