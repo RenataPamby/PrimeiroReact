@@ -1,44 +1,21 @@
-import type React from "react";
-
-
-//Criando uma propriedade
-interface ICardProps{
-  title: string;
-  children: React.ReactNode;//Para poder receber filhos
-} 
-
-//Componete React
-const Card = (props: ICardProps) => {
-
-  return (
-    <div style={{ border: '1px solid black' }}>
-      <span>Title: {props.title}</span>
-
-      <div>
-        {props.children}
-      </div>
-
-      <div>
-        Footer
-      </div>
-    </div>
-  );
-}
- 
+import { useState } from 'react';
 
 
 //Principal
 export function App() {  
 
+  {/*- Ajuda a controlar o fluxo de renderização 
+     - Usado para guardar valores que você quer utilizar na sua aplicação (atualizar esses valores)
+     - Quarda um valor na memória do react, e para atualizar o valor se usa o setCount, porque ele 
+    “Manda o novo valor para o useState (atualiza o valor que esta em memoria) que faz o novo fluxo de reander com 
+    o valor novo jogado na memória do react”. */}
+  const [count, setCount] = useState(0);
+  
   return (
       <div>
-        Olá
-         <p>Card:</p>
-         {/*<Card title="Teste01"/> {/*Self Close (pode não receber filhos)*/}
-         <Card title="Propriedade titulo">
-          Só posso escrever isso porque agora pode ter filhos, 
-          e esse texto é um filho
-         </Card>
+        <button onClick={() => setCount(count+1)}>
+          {count}
+        </button>
       </div>
   )
 }
