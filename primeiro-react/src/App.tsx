@@ -1,44 +1,45 @@
-import { useState } from "react";
+import type React from "react";
 
-//Componente Funcional
-const Test = () => {
+
+//Criando uma propriedade
+interface ICardProps{
+  title: string;
+  children: React.ReactNode;//Para poder receber filhos
+} 
+
+//Componete React
+const Card = (props: ICardProps) => {
+
   return (
-    <div>Teste</div>
-  )
-}
+    <div style={{ border: '1px solid black' }}>
+      <span>Title: {props.title}</span>
 
+      <div>
+        {props.children}
+      </div>
+
+      <div>
+        Footer
+      </div>
+    </div>
+  );
+}
+ 
+
+
+//Principal
 export function App() {  
 
   return (
       <div>
         Olá
-        <Test></Test> {/*Componente Funcional*/}
+         <p>Card:</p>
+         {/*<Card title="Teste01"/> {/*Self Close (pode não receber filhos)*/}
+         <Card title="Propriedade titulo">
+          Só posso escrever isso porque agora pode ter filhos, 
+          e esse texto é um filho
+         </Card>
       </div>
   )
 }
 
-//Função JS
-const teste = () => {
-  return 1 + 1;
-}
-//Função JS
-const useTeste = () => {
-  return 1 + 1;
-}
-//React hook
-const useTest = () => {
-  const [valor] = useState(1+1);
-  return valor;
-}
-//Componente Funcional
-const Testes = () => {
-  return (
-    <div>Teste</div>
-  )
-}
-//Função JS que retorna HTML react
-const test = () => {
-  return (
-    <div>Teste</div>
-  )
-}
