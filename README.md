@@ -18,5 +18,35 @@ Este repositório tem como objetivo registrar minha evolução nos estudos de **
 Ele **não representa um projeto final**, mas sim um espaço de aprendizado contínuo, onde cada commit reflete conteúdos estudados em aulas, cursos e estudos individuais.
 
 ---
-## 🧠 Sobre o aprendizado
+## Sobre o aprendizado
 O foco principal do estudo é o **React**. Portanto, para complementar esse aprendizado, estou utilizando **TypeScript** na medida necessária para construir aplicações em React com mais segurança e organização, sem perder o foco no objetivo principal.
+
+### Repositório complementar – TypeScript puro
+Para melhorar meu conhecimento do **React + TypeScript**, eu busquei aprender um pouco do **TypeScript puro** para que o meu conhecimento neste projeto pudesse fluir melhor. Então, eu criei um repositório paralelo para mostrar o que eu aprendi de TypeScript, complementando este aprendizado.
+
+📌 **Repositório:**  
+👉 https://github.com/RenataPamby/PrimeiroTypeScript
+
+---
+## 🧠 Objetivo do projeto
+
+- Praticar React com TypeScript
+- Entender tipagem de componentes
+- Tipar props e estados
+- Aprender a estrutura de um projeto React + TS
+- Usar Vite para desenvolvimento rápido
+
+## 🛠️ Tecnologias utilizadas
+
+- React
+- TypeScript
+- Vite
+- Node.js
+- npm
+
+---
+## ▶️ Como rodar o projeto
+
+```bash
+npm install
+npm run dev
