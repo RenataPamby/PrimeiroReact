@@ -1,36 +1,33 @@
-import { useState } from 'react';
-
+import { useState } from "react"
 
 //Principal
 export function App() {  
-  //tipando o useState
-  const [count, setCount] = useState(0);
-  const [hide, setHide] = useState(false);
-  //O useState é como se foce uma função, só que para renderização
-  //então existe um forma de com se declara ele
-  //[nome var, nome funçao] = useState<tipo>(declaração inicial)
-  const [nome, setNome] = useState<string>("");
-  const [name, setName] = useState(""); //você também pode homitir o tipo,
-                                        // pois ele assume altomaticamente
+  const [list, setList] = useState([
+    { id: '1', label: 'Estudar Type', },
+    { id: '2', label: 'Estudar React', },
+    { id: '3', label: 'Estudar Ingles', },
+    { id: '4', label: 'Estudar Ingles', },
+  ]);
 
   return (
       <div>
-        {/*Forma 01*/}
-        {hide && <p>Teste1</p>} {/*Testa com um "menu hamburger?"*/}
-        {!hide && <p>Teste2</p>}
-
-        {/*Forma 02*/}
-        {hide
-          ? <p>Teste1</p>
-          : <p>Teste2</p>     
-        }
-        <button onClick={() => setHide(!hide)}>
-         Toggle
+        <input/>
+        <button>
+          Adicionar
         </button>
 
-        <button onClick={() => setCount(count+1)}>
-          {count}
-        </button>
+        <ol>
+          {/*A função homitiu o tipo(string),
+            não mais pq agora é do tipo objeto*/}
+          {/*o key tras que cada elemento da lista é unico.. 
+            ..q um n é o mesmo que o outro*/}
+          {list.map((listItem) => (
+            <li key={listItem.id}>
+              {listItem.label}
+            </li>
+          ))}
+        </ol>
+        
       </div>
   )
 }
