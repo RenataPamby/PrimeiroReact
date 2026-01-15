@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 //Principal
-export function App() {  
+export function App() { 
+  const [value, setValue] = useState(''); 
   const [list, setList] = useState([
     { id: '1', label: 'Estudar Type', },
     { id: '2', label: 'Estudar React', },
@@ -11,8 +12,16 @@ export function App() {
 
   return (
       <div>
-        <input/>
-        <button>
+        {/*(onChange) atualiza o valor que vc esta colocando na input, e manda para setValue*/}
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+         {/*(...list) tras tudo o que tinha antes na lsita*/}
+        <button        
+          onClick={() => {setList([...list, { id: (list.length+1).toString(), label: value} ]);
+          setValue('')
+          }}>          
           Adicionar
         </button>
 
