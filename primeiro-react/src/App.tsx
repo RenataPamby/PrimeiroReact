@@ -2,8 +2,7 @@ import { useState } from "react"
 import { InputAdd } from "./components/InputAdd";
 
 //Principal
-export function App() { 
-  
+export function App() {   
   const [list, setList] = useState([
     { id: '1', label: 'Estudar Type', complite: false,},
     { id: '2', label: 'Estudar React', complite: false,},
@@ -11,16 +10,22 @@ export function App() {
     { id: '4', label: 'Estudar Ingles', complite: false,},
   ]);
 
+  {/*(...list) tras tudo o que tinha antes na lsita*/}
+  {/*Esta lidando com o adicionar do evendto do input
+    No iputAdd.tsx, ele lida com o do click do input */}
+  const handleAdd = (value: string) => {
+    setList([      
+      ...list, 
+      { id: (list.length+1).toString(), label: value, complite: false}
+    ])
+  }
+
+
   return (
       <div>
         {/*(onAdd) é um evento que acontece dentro do componente
           é o mesmo que o onClick ou o onChange*/}
-        <InputAdd 
-            onAdd={(value) => setList([
-              ...list, 
-              { id: (list.length+1).toString(), label: value, complite: false}
-            ])}
-        />
+        <InputAdd onAdd={handleAdd} />
         
 
         <ol>
