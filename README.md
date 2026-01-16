@@ -15,7 +15,10 @@
 ## 📚 Sobre este repositório
 Este repositório tem como objetivo registrar minha evolução nos estudos de **React**, utilizando **Vite** e **TypeScript**.
 
-Ele **não representa um projeto final**, mas sim um espaço de aprendizado contínuo, onde cada commit reflete conteúdos estudados em aulas, cursos e estudos individuais.
+Ele **não representa um projeto final**, mas sim um espaço de aprendizado contínuo, onde cada commit reflete conteúdos estudados em aulas e estudos individuais.
+
+Os estudos foi baseada na playlist do YouTube:
+👉 https://youtube.com/playlist?list=PL29TaWXah3iYzP5FGywXezXm4ZvBibGSk&si=xzYkXI3wnDmrEJH7
 
 ---
 ## Sobre o aprendizado

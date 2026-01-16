@@ -1,9 +1,8 @@
 import { useState } from "react"
-import { InputAdd } from "./components/InputAdd";
 
 //Principal
 export function App() { 
-  
+  const [value, setValue] = useState(''); 
   const [list, setList] = useState([
     { id: '1', label: 'Estudar Type', complite: false,},
     { id: '2', label: 'Estudar React', complite: false,},
@@ -13,15 +12,18 @@ export function App() {
 
   return (
       <div>
-        {/*(onAdd) é um evento que acontece dentro do componente
-          é o mesmo que o onClick ou o onChange*/}
-        <InputAdd 
-            onAdd={(value) => setList([
-              ...list, 
-              { id: (list.length+1).toString(), label: value, complite: false}
-            ])}
+        {/*(onChange) atualiza o valor que vc esta colocando na input, e manda para setValue*/}
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
-        
+         {/*(...list) tras tudo o que tinha antes na lsita*/}
+        <button        
+          onClick={() => {setList([...list, { id: (list.length+1).toString(), label: value, complite: false} ]);
+          setValue('')
+          }}>          
+          Adicionar
+        </button>
 
         <ol>
           {/*A função homitiu o tipo(string),
@@ -33,7 +35,11 @@ export function App() {
               {listItem.label}
               {listItem.complite ? ' Concluido ' : ''}
 
-              <button
+              {/*Vai retornar toda a lista (..list), mas ates ele vai atualizar (map) o item
+                pegando o que ele tinha antes (...item) e adicionando concluido
+                se a condição for verdadeira (item.id === listItem.id), se não, 
+                retorna o que ela tinha antes (item.complite)*/}
+              <button                
                 onClick={() => setList(
                   [...list.map(item => 
                     ({ ...item, complite: item.id === listItem.id ? true : item.complite})) 
@@ -41,6 +47,7 @@ export function App() {
               >
                 Concluir
               </button>
+
               {/*filtra o intem para os itens que forem direfentes
                 deste item.id eles irão permanecer*/}
               <button
@@ -55,4 +62,3 @@ export function App() {
       </div>
   )
 }
-
