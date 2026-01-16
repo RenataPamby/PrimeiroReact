@@ -4,10 +4,10 @@ import { useState } from "react"
 export function App() { 
   const [value, setValue] = useState(''); 
   const [list, setList] = useState([
-    { id: '1', label: 'Estudar Type', },
-    { id: '2', label: 'Estudar React', },
-    { id: '3', label: 'Estudar Ingles', },
-    { id: '4', label: 'Estudar Ingles', },
+    { id: '1', label: 'Estudar Type', complite: false,},
+    { id: '2', label: 'Estudar React', complite: false,},
+    { id: '3', label: 'Estudar Ingles', complite: false,},
+    { id: '4', label: 'Estudar Ingles', complite: false,},
   ]);
 
   return (
@@ -19,7 +19,7 @@ export function App() {
         />
          {/*(...list) tras tudo o que tinha antes na lsita*/}
         <button        
-          onClick={() => {setList([...list, { id: (list.length+1).toString(), label: value} ]);
+          onClick={() => {setList([...list, { id: (list.length+1).toString(), label: value, complite: false} ]);
           setValue('')
           }}>          
           Adicionar
@@ -33,6 +33,23 @@ export function App() {
           {list.map((listItem) => (
             <li key={listItem.id}>
               {listItem.label}
+              {listItem.complite ? ' Concluido ' : ''}
+
+              <button
+                onClick={() => setList(
+                  [...list.map(item => 
+                    ({ ...item, complite: item.id === listItem.id ? true : item.complite})) 
+                  ])}
+              >
+                Concluir
+              </button>
+              {/*filtra o intem para os itens que forem direfentes
+                deste item.id eles irão permanecer*/}
+              <button
+                onClick={() => setList([...list.filter(item => item.id !== listItem.id) ])}
+              >
+                Remover
+              </button>
             </li>
           ))}
         </ol>
