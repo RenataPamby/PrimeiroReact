@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { InputAdd } from "./components/InputAdd";
+import { TodoItem } from "./components/TodoItem";
 
 //Principal
 export function App() {   
@@ -34,29 +35,19 @@ export function App() {
           {/*o key tras que cada elemento da lista é unico.. 
             ..q um n é o mesmo que o outro*/}
           {list.map((listItem) => (
-            <li key={listItem.id}>
-              {listItem.label}
-              {listItem.complite ? ' Concluido ' : ''}
+            <TodoItem 
+              id={listItem.id}
+              label={listItem.label}
+              complite={listItem.complite}
 
-              <button
-                onClick={() => setList(
+              onComplite={() => setList(
                   [...list.map(item => 
                     ({ ...item, complite: item.id === listItem.id ? true : item.complite})) 
                   ])}
-              >
-                Concluir
-              </button>
-              {/*filtra o intem para os itens que forem direfentes
-                deste item.id eles irão permanecer*/}
-              <button
-                onClick={() => setList([...list.filter(item => item.id !== listItem.id) ])}
-              >
-                Remover
-              </button>
-            </li>
+              onRemove={() => setList([...list.filter(item => item.id !== listItem.id) ])}
+            />
           ))}
-        </ol>
-        
+        </ol>        
       </div>
   )
 }
