@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { InputAdd } from "./components/InputAdd";
 import { TodoItem } from "./components/TodoItem";
+import { List } from "./components/List";
 
 //Principal
 export function App() {   
@@ -12,7 +13,7 @@ export function App() {
   ]);
 
   {/*(...list) tras tudo o que tinha antes na lsita*/}
-  {/*Esta lidando com o adicionar do evendto do input
+  {/*Esta lidando com o adicionar do evento do input
     No iputAdd.tsx, ele lida com o do click do input */}
   const handleAdd = (value: string) => {
     setList([      
@@ -20,34 +21,38 @@ export function App() {
       { id: (list.length+1).toString(), label: value, complite: false}
     ])
   }
+   const handleComplite = (id: string) => {
+      setList(
+        [...list.map(item => 
+          ({ ...item, complite: item.id === id ? true : item.complite})) 
+        ])
+   }
+   const handleRemove = (id: string) => {
+      setList([...list.filter(item => item.id !== id) ])
+   }
 
 
   return (
       <div>
         {/*(onAdd) é um evento que acontece dentro do componente
           é o mesmo que o onClick ou o onChange*/}
-        <InputAdd onAdd={handleAdd} />
-        
+        <InputAdd onAdd={handleAdd} />        
 
-        <ol>
-          {/*A função homitiu o tipo(string),
-            não mais pq agora é do tipo objeto*/}
-          {/*o key tras que cada elemento da lista é unico.. 
-            ..q um n é o mesmo que o outro*/}
+        {/*Em um projeto grande não é bom sair componetizando tudo,
+          exemplo esse list, que só foi uma demosntração, mas talvez em projetos
+          maiores não seria nescessario*/}
+        <List>
           {list.map((listItem) => (
             <TodoItem 
               id={listItem.id}
               label={listItem.label}
               complite={listItem.complite}
 
-              onComplite={() => setList(
-                  [...list.map(item => 
-                    ({ ...item, complite: item.id === listItem.id ? true : item.complite})) 
-                  ])}
-              onRemove={() => setList([...list.filter(item => item.id !== listItem.id) ])}
+              onComplite={() => handleComplite(listItem.id)}
+              onRemove={() => handleRemove(listItem.id)}
             />
           ))}
-        </ol>        
+        </List>        
       </div>
   )
 }

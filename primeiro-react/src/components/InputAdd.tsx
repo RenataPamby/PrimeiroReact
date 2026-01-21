@@ -6,7 +6,7 @@ interface IInputAdd{
 export const InputAdd = (props: IInputAdd) => {
     const [value, setValue] = useState(''); 
 
-    {/*(hancle = lidar com). ental ele esta lidando com a 
+    {/*(handle = lidar com). ental ele esta lidando com a 
         parte de adicionar */}
     const handleAdd = () => {
         props.onAdd(value); 

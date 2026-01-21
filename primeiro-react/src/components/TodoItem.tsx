@@ -10,7 +10,9 @@ interface ITodoItemProps {
 {/*export const TodoItem =({id, label, complite}: ITodoItemProps) */}
 export const TodoItem =(props: ITodoItemProps) => {
     
-    return (
+    {/*o key tras que cada elemento da lista é unico.. 
+            ..q um n é o mesmo que o outro*/}
+    return (        
         <li key={props.id}>
               {props.label}
               {props.complite ? ' Concluido ' : ''}
@@ -19,8 +21,7 @@ export const TodoItem =(props: ITodoItemProps) => {
                 onClick={props.onComplite}>
                 Concluir
               </button>
-              {/*filtra o intem para os itens que forem direfentes
-                deste item.id eles irão permanecer*/}
+
               <button
                 onClick={props.onRemove}>
                 Remover
