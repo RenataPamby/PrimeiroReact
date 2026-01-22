@@ -1,7 +1,15 @@
 import { useState } from "react"
+
+import { TodoAPI } from "./shared/services/api/TodoAPI";
 import { InputAdd } from "./components/InputAdd";
 import { TodoItem } from "./components/TodoItem";
 import { List } from "./components/List";
+
+
+
+
+TodoAPI.getAll().then(data => console.log('APP', data));
+
 
 //Principal
 export function App() {   
