@@ -6,9 +6,15 @@ import { TodoItem } from "./components/TodoItem";
 import { List } from "./components/List";
 
 
-
-
-TodoAPI.getAll().then(data => console.log('APP', data));
+//testando os metodos do TodoAPI
+TodoAPI.getAll().then(data => console.log('1', data));
+TodoAPI.create({label: 'roupas', complite: false});
+TodoAPI.create({label: 'louça', complite: true});
+TodoAPI.getAll().then(data => console.log('2', data));
+TodoAPI.updateById('1', {label: 'teste', complite: true});
+TodoAPI.getAll().then(data => console.log('3', data));
+TodoAPI.deleteById('2');
+TodoAPI.getAll().then(data => console.log('3', data));
 
 
 //Principal
@@ -52,6 +58,7 @@ export function App() {
         <List>
           {list.map((listItem) => (
             <TodoItem 
+              key={listItem.id} //"obrigatorio" na aula n tinha
               id={listItem.id}
               label={listItem.label}
               complite={listItem.complite}
