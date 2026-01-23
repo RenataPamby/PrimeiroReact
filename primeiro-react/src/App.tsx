@@ -1,49 +1,48 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-import { TodoAPI } from "./shared/services/api/TodoAPI";
+import { TodoAPI, type ITodo } from "./shared/services/api/TodoAPI";
 import { InputAdd } from "./components/InputAdd";
 import { TodoItem } from "./components/TodoItem";
 import { List } from "./components/List";
 
 
-//testando os metodos do TodoAPI
-TodoAPI.getAll().then(data => console.log('1', data));
-TodoAPI.create({label: 'roupas', complite: false});
-TodoAPI.create({label: 'louça', complite: true});
-TodoAPI.getAll().then(data => console.log('2', data));
-TodoAPI.updateById('1', {label: 'teste', complite: true});
-TodoAPI.getAll().then(data => console.log('3', data));
-TodoAPI.deleteById('2');
-TodoAPI.getAll().then(data => console.log('3', data));
-
 
 //Principal
 export function App() {   
-  const [list, setList] = useState([
-    { id: '1', label: 'Estudar Type', complite: false,},
-    { id: '2', label: 'Estudar React', complite: false,},
-    { id: '3', label: 'Estudar Ingles', complite: false,},
-    { id: '4', label: 'Estudar Ingles', complite: false,},
-  ]);
+  const [list, setList] = useState<ITodo[]>([]);
+  
+  {/*o effect só vai atualizar de novo { } quando as dependecias dele
+  for alterada [];*/}
+  useEffect( () => {
+    TodoAPI.getAll().then(data => setList(data));
+  }, []);
+
+
 
   {/*(...list) tras tudo o que tinha antes na lsita*/}
   {/*Esta lidando com o adicionar do evento do input
     No iputAdd.tsx, ele lida com o do click do input */}
   const handleAdd = (value: string) => {
-    setList([      
-      ...list, 
-      { id: (list.length+1).toString(), label: value, complite: false}
-    ])
+    TodoAPI.create({label: value, complite: false})
+      .then( data => setList([      
+          ...list, data])
+      );     
   }
-   const handleComplite = (id: string) => {
-      setList(
-        [...list.map(item => 
-          ({ ...item, complite: item.id === id ? true : item.complite})) 
-        ])
-   }
-   const handleRemove = (id: string) => {
-      setList([...list.filter(item => item.id !== id) ])
-   }
+
+  const handleComplite = (id: string) => {
+    setList(
+      [...list.map(item => 
+        ({ ...item, complite: item.id === id ? true : item.complite})) 
+      ]); 
+      // TodoAPI.updateById( (id).toString(), {complite: true})
+      // TodoAPI.getAll().then(data => console.log('API', data));
+  }
+
+  const handleRemove = (id: string) => {
+    setList([...list.filter(item => item.id !== id) ]);
+    // TodoAPI.deleteById( (id).toString());
+    // TodoAPI.getAll().then(data => console.log('API', data));
+  }
 
 
   return (

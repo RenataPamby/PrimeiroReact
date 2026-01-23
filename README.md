@@ -52,4 +52,5 @@ Para melhorar meu conhecimento do **React + TypeScript**, eu busquei aprender um
 
 ```bash
 npm install
+cd primeiro-react
 npm run dev

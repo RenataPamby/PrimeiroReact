@@ -1,8 +1,10 @@
+//Ponte entre o front e o back
+//Aqui é a API da lista Todos
 import axios from "axios";
 
 const axiosInstance = axios.create();
 
-interface ITodo {
+export interface ITodo {
     id: string;
     label: string;
     complite: boolean;

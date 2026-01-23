@@ -9,7 +9,8 @@ createServer({
         //get('/api/todos/:id')
         this.namespace = 'api';
 
-
+        //schema: tipo de banco de dados local (acessa o banco)
+        //request: acessa o dados que esta no corpo da requisição
         this.get('/todos', (schema) => {
             return schema.all('todos');
         });
