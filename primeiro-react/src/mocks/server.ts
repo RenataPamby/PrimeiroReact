@@ -4,6 +4,14 @@ createServer({
     models: {
         todos: Model
     },
+    seeds(server) {
+        //ver os dados salvos no localStorege
+        const todosAsStrings = localStorage.getItem('MOCK_TODOS');
+        if (todosAsStrings === null)return;
+
+        const todos = JSON.parse(todosAsStrings);
+        todos.models.forEach((todo: {}) => server.schema.create('todos', todo));
+    },
     routes() {
         //get('/api/todos')
         //get('/api/todos/:id')
@@ -18,6 +26,11 @@ createServer({
         this.post('/todos', (schema, request) => {
             const attrs = JSON.parse(request.requestBody);
             const todo = schema.create('todos', attrs);
+
+            //Fazer com que o dados fiquem salvos ao dar F5
+            //salvando no local storege do navegador
+            const todos = schema.all('todos');
+            localStorage.setItem('MOCK_TODOS', JSON.stringify(todos));
             return todo;
         });
 
@@ -26,6 +39,9 @@ createServer({
             const newAttrs = JSON.parse(request.requestBody);
             const todo = schema.find('todos', id);
             todo?.update(newAttrs);
+
+            const todos = schema.all('todos');
+            localStorage.setItem('MOCK_TODOS', JSON.stringify(todos));
             return {};
         });
 
@@ -33,6 +49,9 @@ createServer({
             const id = request.params.id;
             const todo = schema.find('todos', id);
             todo?.destroy();
+
+            const todos = schema.all('todos');
+            localStorage.setItem('MOCK_TODOS', JSON.stringify(todos));
             return {};
         });
     },
