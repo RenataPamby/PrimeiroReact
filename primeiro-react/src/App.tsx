@@ -10,7 +10,7 @@ import { List } from "./components/List";
 //Principal
 export function App() {   
   const [list, setList] = useState<ITodo[]>([]);
-  
+
   {/*o effect só vai atualizar de novo { } quando as dependecias dele
   for alterada [];*/}
   useEffect( () => {
@@ -28,20 +28,18 @@ export function App() {
           ...list, data])
       );     
   }
-
   const handleComplite = (id: string) => {
-    setList(
-      [...list.map(item => 
+    TodoAPI.updateById( id, {complite: true})
+      .then(() => setList(
+        [...list.map(item => 
         ({ ...item, complite: item.id === id ? true : item.complite})) 
-      ]); 
-      // TodoAPI.updateById( (id).toString(), {complite: true})
-      // TodoAPI.getAll().then(data => console.log('API', data));
+      ])
+    );  
   }
-
   const handleRemove = (id: string) => {
-    setList([...list.filter(item => item.id !== id) ]);
-    // TodoAPI.deleteById( (id).toString());
-    // TodoAPI.getAll().then(data => console.log('API', data));
+    TodoAPI.deleteById(id)
+      .then(() => setList([...list.filter(item => item.id !== id) ])
+    );
   }
 
 
