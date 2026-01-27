@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+}
+.layout-base {
+    padding: 8px;
+    background-color: rgb(232, 232, 232);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.layout-header {
+    background-color: rgba(0, 126, 97, 0.356);
+    padding: 8px;
+    padding-left: 20px;
+    display: flex;
+    gap: 10px;
+}
+.layout-divider {
+    border-color: rgba(0, 0, 0, 0.307);
+}
