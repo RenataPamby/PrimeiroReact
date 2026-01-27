@@ -2,7 +2,7 @@ import type React from "react"
 
 import './AppLayout.css'
 
-
+{/*Eu posso declarar a childrean assim, e como esta np PageLayout.tsx */}
 export const AppLayout = ({ children }: React.PropsWithChildren) => {
 
 

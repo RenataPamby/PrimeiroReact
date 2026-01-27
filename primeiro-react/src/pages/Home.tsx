@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { TodoAPI, type ITodo } from "../shared/services/api/TodoAPI";
+import { PageLayout } from "../shared/layout/page-layout/PageLayout";
 import { InputAdd } from "../components/InputAdd";
 import { List } from "../components/List";
 import { TodoItem } from "../components/TodoItem";
@@ -44,7 +45,7 @@ export const Home = () => {
 
 
   return (
-      <div>
+      <PageLayout title="Pagina Inicial">
         {/*(onAdd) é um evento que acontece dentro do componente
           é o mesmo que o onClick ou o onChange*/}
         <InputAdd onAdd={handleAdd} />        
@@ -66,6 +67,6 @@ export const Home = () => {
             />
           ))}
         </List>        
-      </div>
+      </PageLayout>
   )
 }

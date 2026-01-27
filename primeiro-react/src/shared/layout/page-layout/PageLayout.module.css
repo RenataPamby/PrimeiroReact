@@ -1,0 +1,28 @@
+
+/*
+  Ele cria CLASSES CSS
+  CSS escopado
+  Ele permite que esta classe css seja aplicado apenas para esta classe,
+    mesmo que tutilize o mesmo nome em outro arquivo css
+  Resumindo: Ele evita ter conflitos com outros CSS's por talves ter o mesmo nome
+*/
+
+.PageLayoutContainer {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 16px;
+}
+
+.PageContent{
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px #0000001a;
+}
+
+.PageTitle {
+    margin-top: 0;
+}

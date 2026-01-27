@@ -1,18 +1,21 @@
 body{
+    height: 100%;
     margin: 0;
 }
 .layout-base {
-    padding: 8px;
-    background-color: rgb(232, 232, 232);
+    min-height: 100vh;
+    background-color: rgb(240, 240, 240);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .layout-header {
     background-color: rgba(0, 126, 97, 0.356);
-    padding: 8px;
-    padding-left: 20px;
+    padding: 15px;
     display: flex;
-    gap: 10px;
+    gap: 30px;
+    justify-content: center;
+
 }
 .layout-divider {
-    border-color: rgba(0, 0, 0, 0.307);
+    margin-top: 0;
+    border: none;
 }
