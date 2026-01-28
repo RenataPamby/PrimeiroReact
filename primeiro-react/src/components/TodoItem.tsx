@@ -13,16 +13,16 @@ export const TodoItem =(props: ITodoItemProps) => {
     {/*o key tras que cada elemento da lista é unico.. 
             ..q um n é o mesmo que o outro*/}
     return (        
-        <li key={props.id}>
+        <li className="Lista" key={props.id}>
               {props.label}
               {props.complite ? ' Concluido ' : ''}
 
-              <button
+              <button className="BottonConcluir"
                 onClick={props.onComplite}>
                 Concluir
               </button>
 
-              <button
+              <button className="BottonRemover"
                 onClick={props.onRemove}>
                 Remover
               </button>

@@ -16,7 +16,7 @@ export const PageLayout = ( {children, title}: IPageLayoutProps ) => {
                 <div>
                     <h2 className={PageLayoutStyles.PageTitle}>{title}</h2>
                 </div>
-                <div>
+                <div className={PageLayoutStyles.PageCenter}>
                     {children}
                 </div> 
             </div>                      

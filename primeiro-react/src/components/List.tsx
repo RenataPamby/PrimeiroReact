@@ -8,7 +8,7 @@
 export const List = ({ children }: React.PropsWithChildren) => {
 
     return(
-        <ol>
+        <ol className="Lista">
             {children}
         </ol>
     );
