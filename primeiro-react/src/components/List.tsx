@@ -1,4 +1,6 @@
 
+
+import ListStyles from './List.module.css'
 {/*Você pode fazer dessa maneira, onde isso (React.PropsWithChildren)
     fala que vc pode usar as props e o children dessa maneira 
     (React.PropsWithChildren<{value: number}>
@@ -8,7 +10,7 @@
 export const List = ({ children }: React.PropsWithChildren) => {
 
     return(
-        <ol className="Lista">
+        <ol className={ListStyles.Lista}>
             {children}
         </ol>
     );

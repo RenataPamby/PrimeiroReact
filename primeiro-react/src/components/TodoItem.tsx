@@ -1,3 +1,4 @@
+import TodoItemStyle from "./TodoItem.module.css";
 
 interface ITodoItemProps {
     id: string,
@@ -13,19 +14,25 @@ export const TodoItem =(props: ITodoItemProps) => {
     {/*o key tras que cada elemento da lista é unico.. 
             ..q um n é o mesmo que o outro*/}
     return (        
-        <li className="Lista" key={props.id}>
-              {props.label}
-              {props.complite ? ' Concluido ' : ''}
+        <li className={TodoItemStyle.Lista} 
+            data-complite={props.complite} key={props.id}>
+              {/*Span foi criado para fazer um check no css*/}
+              <span className={TodoItemStyle.Text}>
+                {props.label}
+                {props.complite}
+              </span>
 
-              <button className="BottonConcluir"
-                onClick={props.onComplite}>
-                Concluir
-              </button>
+              <div className={TodoItemStyle.ButtonsDiv}>
+                <button className={TodoItemStyle.ButtonConcluir}
+                  onClick={props.onComplite}>
+                  Concluir
+                </button>
 
-              <button className="BottonRemover"
-                onClick={props.onRemove}>
-                Remover
-              </button>
+                <button className={TodoItemStyle.ButtonRemover}
+                  onClick={props.onRemove}>
+                  Remover
+                </button>
+              </div>              
             </li>
     );
 }

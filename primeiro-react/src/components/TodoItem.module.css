@@ -1,0 +1,48 @@
+
+.Lista{
+    gap: 4px;
+    padding: 8px;
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Lista[data-complite="true"] .Text{
+    text-decoration: line-through;
+    color: rgb(99, 98, 98);
+}
+
+.ButtonsDiv{
+    display: flex;
+    gap: 5px;
+}
+
+.ButtonConcluir{
+    border: none;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    background-color: rgb(6, 107, 23);
+    color: aliceblue;
+    cursor: pointer;
+}
+.ButtonConcluir:hover{
+    background-color: rgb(12, 177, 40);
+    cursor: pointer;
+}
+.ButtonRemover{
+    border: none;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    background-color: rgb(107, 6, 6);
+    color: aliceblue;
+    cursor: pointer;
+}
+.ButtonRemover:hover{
+    background-color: rgb(177, 12, 12);
+    cursor: pointer;
+}

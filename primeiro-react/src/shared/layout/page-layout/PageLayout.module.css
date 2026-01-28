@@ -15,8 +15,6 @@
 }
 
 .PageContent{
-    display: grid;
-    justify-content: center;
     width: 100%;
     max-width: 800px;
     background-color: rgb(255, 255, 255);
@@ -26,8 +24,6 @@
 }
 
 .PageTitle {
-    display: grid;
-    justify-content: center;
     margin-top: 0;
     color:  rgba(2, 110, 85, 0.792);
 }
