@@ -7,11 +7,15 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.Text{
+    text-decoration: none;
+    color: black;
+}
 .Lista[data-complite="true"] .Text{
     text-decoration: line-through;
     color: rgb(99, 98, 98);
 }
+
 
 .ButtonsDiv{
     display: flex;

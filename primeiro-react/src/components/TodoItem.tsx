@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import TodoItemStyle from "./TodoItem.module.css";
 
 interface ITodoItemProps {
@@ -17,10 +19,10 @@ export const TodoItem =(props: ITodoItemProps) => {
         <li className={TodoItemStyle.Lista} 
             data-complite={props.complite} key={props.id}>
               {/*Span foi criado para fazer um check no css*/}
-              <span className={TodoItemStyle.Text}>
+              <Link to={`/detalhe/${props.id}`} className={TodoItemStyle.Text}>
                 {props.label}
                 {props.complite}
-              </span>
+              </Link>
 
               <div className={TodoItemStyle.ButtonsDiv}>
                 <button className={TodoItemStyle.ButtonConcluir}
