@@ -1,4 +1,5 @@
 import type React from "react"
+import { NavLink } from "react-router";
 
 import './AppLayout.css'
 
@@ -9,8 +10,12 @@ export const AppLayout = ({ children }: React.PropsWithChildren) => {
     return (
         <div className="layout-base">
             <div className="layout-header">
-                <a>Home</a>
-                <a>Usuários</a>
+                <NavLink to='/' className="navigate">
+                    Home
+                </NavLink>
+                <NavLink to='/sobre' className="navigate">
+                    Sobre
+                </NavLink>
             </div>
             <hr className="layout-divider"/>
 

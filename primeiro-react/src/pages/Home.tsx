@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 import { TodoAPI, type ITodo } from "../shared/services/api/TodoAPI";
-import { PageLayout } from "../shared/layout/page-layout/PageLayout";
 import { InputAdd } from "../components/InputAdd";
 import { List } from "../components/List";
 import { TodoItem } from "../components/TodoItem";
+
+import { PageLayout } from "../shared/layout/page-layout/PageLayout";
 
 
 //Inicio
