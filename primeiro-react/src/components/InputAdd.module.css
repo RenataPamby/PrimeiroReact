@@ -9,8 +9,9 @@
     background-color: rgba(106, 144, 132, 0.446);
     border: none;
     border-radius: 5px;
-    padding-right: 250px;
-    padding-left: 250px;
+    padding-right: 450px;
+    padding-left: 50px;
+    font-family: Verdana, Tahoma, sans-serif;
 }
 .LabelName:hover {
     background-color: rgba(135, 182, 167, 0.446);
