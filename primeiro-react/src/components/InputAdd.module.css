@@ -30,7 +30,7 @@
     padding: 6px;
     padding-left: 12px;
     padding-right: 12px;
-     cursor: pointer;
+    cursor: pointer;
 }
 .BottonAdicionar:hover{
     background-color:  rgb(47, 137, 108);

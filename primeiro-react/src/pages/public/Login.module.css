@@ -1,0 +1,58 @@
+.PageContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Tahoma, sans-serif;
+  background-color: rgba(65, 99, 84, 0.098);
+}
+
+.PageContent {
+  width: 100%;
+  padding: 16px;
+  max-width: 300px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 6px #0000001a;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Title {
+  margin: 0;
+}
+.LoginTitle{
+  color:  rgba(2, 110, 85, 0.792);;
+}
+
+.Input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #00000025;
+  border-radius: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.Button {
+  border: none;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: rgba(33, 77, 63);
+}
+
+.Button:hover {
+  background: rgb(47, 137, 108);
+}
+
+.Button:active {
+  background:  rgb(47, 131, 137);
+}

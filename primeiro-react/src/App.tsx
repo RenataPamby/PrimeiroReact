@@ -8,26 +8,34 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { NotFound } from "./pages/NotFound";
 import { Detail } from "./pages/Detail";
+import { Login } from "./pages/public/Login";
 
 
 //Principal
 export function App() {   
-  
+  const isAuthenticated = false;
 
   return (
     <BrowserRouter>
-      <AppLayout>
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/sobre" element={<About />}/>
-          {/*existem essas possibilidades de erro de rota
-            1. Retorna para um tela que vc escolhe
-            2. Vai para uma tela de erro*/}
-          {/*<Route path="*" element={<Navigate to="/" />}/>*/}         
-          <Route path="*" element={<NotFound />}/>
-          <Route path="/detalhe/:id" element={<Detail />}/>
-        </Routes>
-      </AppLayout>    
+      {isAuthenticated && (
+        <AppLayout>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/sobre" element={<About />}/>
+            {/*existem essas possibilidades de erro de rota
+              1. Retorna para um tela que vc escolhe
+              2. Vai para uma tela de erro*/}
+            {/*<Route path="*" element={<Navigate to="/" />}/>*/}         
+            <Route path="*" element={<NotFound />}/>
+            <Route path="/detalhe/:id" element={<Detail />}/>
+          </Routes>
+        </AppLayout> 
+      )}
+      {!isAuthenticated && (
+          <Routes>
+            <Route path="*" element={<Login />}/>      
+          </Routes>
+      )}         
     </BrowserRouter>      
   )
 }
