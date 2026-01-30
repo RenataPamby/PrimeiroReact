@@ -32,10 +32,19 @@
 .Input {
   flex: 1;
   padding: 8px;
-  border: 1px solid #00000025;
+  background-color: rgba(106, 144, 132, 0.446);
+  border: none;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
+}
+.Input:hover {
+    background-color: rgba(135, 182, 167, 0.446);
+}
+.Input:focus {
+    outline: none;
+    border: none;
+    background-color:  rgba(135, 182, 167, 0.446);
 }
 
 .Button {
